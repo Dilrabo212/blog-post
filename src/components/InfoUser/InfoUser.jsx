@@ -1,0 +1,36 @@
+import React from 'react'
+import sty from './style.module.scss'
+import dilorom from '../../image/dilorom.png'
+import meeting from '../../image/meeting.png'
+import PostCard from '../PostCard/PostCard'
+export default function InfoUser() {
+    return (
+        <div className='container'>
+            <div className={sty.InfoUser}>
+                <div><img src={dilorom} alt="photo user" /></div>
+                <div className={sty.info}>
+                    <h2 className={sty.name}>Дилором Алиева</h2>
+
+                    <tr>
+                        <td>Карьера</td>
+                        <td>Писатель</td>
+                    </tr>
+                    <tr>
+                        <td>Дата рождения</td>
+                        <td>2 ноября, 1974  ( 46 лет)</td>
+                    </tr>
+                    <tr>
+                        <td>Место рождения</td>
+                        <td>Черняховск, СССР (Россия)</td>
+                    </tr>
+                </div>
+            </div>
+            <h2>ПУБЛИКАЦИИ</h2>
+            <div className={sty.newpost}>
+                <PostCard />
+                <PostCard />
+                <PostCard />
+            </div>
+        </div>
+    )
+}

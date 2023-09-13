@@ -1,0 +1,66 @@
+.postCard {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.img {
+    width: 744px;
+    height: 388px;
+}
+
+.infoTitle {
+
+    color: #222;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Roboto;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 24px;
+}
+
+.date {
+    color: #AEBEC9;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 24px;
+}
+
+.wrapContent {
+
+    display: flex;
+    flex-direction: column;
+    margin-left: 24px;
+}
+
+.blueText {
+    color: var(--udevs-blue, #1B5BF7);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    margin-left: 43px;
+
+    /* 133.333% */
+}
+
+p {
+    color: #555;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    margin-bottom: 48px;
+    width: 628px;
+    height: 100%;
+    /* 177.778% */
+}

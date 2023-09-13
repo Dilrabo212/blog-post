@@ -1,0 +1,19 @@
+.btn {
+    display: flex;
+    width: 128px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 35px;
+    background: var(--udevs-blue, #1B5BF7);
+    color: #FFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    border: none;
+    /* 133.333% */
+}

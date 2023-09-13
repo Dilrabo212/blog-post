@@ -1,0 +1,9 @@
+.btn {
+    display: flex;
+    padding: 8px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--udevs-blue, #1B5BF7);
+    background: transparent;
+}

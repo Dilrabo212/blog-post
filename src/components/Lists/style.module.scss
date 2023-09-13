@@ -1,0 +1,43 @@
+.list {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+
+    .styleList {
+        display: flex;
+        width: 45.6px;
+        height: 45.6px;
+        padding: 5.7px 11.4px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+
+    }
+
+    .styleListOpacity {
+        display: flex;
+        width: 45.6px;
+        padding: 5.7px 11.4px;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0.5;
+        height: 45.6px;
+        // justify-content: center;
+        margin-right: 5px;
+    }
+
+    .styleListActive {
+        display: flex;
+        width: 45.6px;
+        padding: 5.7px 11.4px;
+        flex-direction: column;
+        align-items: center;
+        background: #1B5BF7;
+        border-radius: 8px;
+        height: 45.6px;
+        color: white;
+        justify-content: center;
+    }
+}
