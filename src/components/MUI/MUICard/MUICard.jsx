@@ -2,34 +2,42 @@ import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/m
 import React from 'react'
 import styles from './style.module.scss'
 import LinesEllipsis from 'react-lines-ellipsis'
-export default function MuiCard({ el }) {
-
+import { Link } from 'react-router-dom'
+export default function MuiCard({ data }) {
+    console.log(data);
     return (
-        <Card
-            className={styles.card}
-        >
-            <CardActionArea className={styles.cardBody}>
-                <CardMedia
-                    className={styles.img}
-                    component="img"
-                    image={el.img}
-                    alt={el.name}
-                />
-                <CardContent className={styles.section}>
-                    <Typography className={styles.viewed}>
-                        {el.date} {el.viewed}
-                    </Typography>
-                    <Typography className={styles.title}>
-                        <LinesEllipsis
-                            text={el.title}
-                            maxLine='4'
-                            ellipsis='...'
-                            trimRight
-                            basedOn='letters'
-                        />
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-        </Card>
+        <>
+            {
+                data?.map((el) => {
+                    return (
+                        <Link to={`${el.id}`}>
+                            <div className={styles.card} key={el.id}>
+                                <div className={styles.cardBody}>
+                                    <CardMedia
+                                        className={styles.img}
+                                        component="img"
+                                        image={el.image}
+                                        alt='post'
+                                    />
+                                    <CardContent className={styles.section}>
+                                        <Typography className={styles.viewed}>
+                                            {el.created_at} {el.views}
+                                        </Typography>
+                                        <Typography className={styles.title}>
+                                            <LinesEllipsis
+                                                text={el.body}
+                                                maxLine='4'
+                                                ellipsis='...'
+                                                trimRight
+                                                basedOn='letters'
+                                            />
+                                        </Typography>
+                                    </CardContent>
+                                </div>
+                            </div>
+                        </Link>
+                    )
+                })
+            }</>
     )
 }

@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { MainLayout } from '../Layouts/MainLayout'
 import { Home } from '../modules/Home'
-import UserAcaunt from '../components/UserAcaunt/UserAcaunt'
-import InfoUser from '../components/InfoUser/InfoUser'
-import Repost from '../components/Repost/Repost'
+import Repost from '../modules/Repost/Repost'
+import InfoUser from '../modules/InfoUser/InfoUser'
+import UserAcaunt from '../modules/UserAcaunt/UserAcaunt'
+import Createpost from '../modules/Createpost/Createpost'
 
 
 const Router = () => {
@@ -11,9 +12,10 @@ const Router = () => {
     <Routes>
       <Route path='*' element={<MainLayout />}>
         <Route path='*' element={<Home />} />
-        <Route path='useracaunt' element={<UserAcaunt />} />
-        <Route path='infouser' element={<InfoUser />} />
+        <Route path=':id' element={<UserAcaunt />} />
+        <Route path='info' element={<InfoUser />} />
         <Route path='repost' element={<Repost />} />
+        <Route path='createpost' element={<Createpost />} />
       </Route>
     </Routes>
   </BrowserRouter>

@@ -14,7 +14,9 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.5.0",
+    "body-parser": "^1.20.2",
     "clsx": "^2.0.0",
+    "express": "^4.18.2",
     "rc-table": "^7.33.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -32,6 +34,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "wp-server": "json-server --watch db.json --port 7777",
+    "dev": "concurrently --kill-others \"npm start\" \"npm run wp-server\" \"node server.js\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -53,5 +57,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1",
+    "json-server": "^0.17.3"
   }
 }

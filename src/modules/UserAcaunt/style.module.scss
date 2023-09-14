@@ -10,9 +10,16 @@
     /* 150% */
 }
 
+.image {
+    width: 869px;
+    height: 400px;
+    object-fit: cover;
+
+}
+
 .userInfo {
 
-    width: 232px;
+    width: 869px;
     display: flex;
     flex-direction: column;
     margin-top: 425px;
@@ -79,6 +86,7 @@
 }
 
 .postText {
+    width: 869px;
     align-self: stretch;
     color: #2D2D2D;
     font-family: Roboto;

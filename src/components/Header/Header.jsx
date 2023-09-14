@@ -21,7 +21,7 @@ export const Header = () => {
   return <div className={cls.wraphead}>
     <div className='container' >
       <header className={cls.header}>
-        <Logo link="/home" />
+        <Logo link="/" />
         <nav className={cls.navStyle}>
 
           {

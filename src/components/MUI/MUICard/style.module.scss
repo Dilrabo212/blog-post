@@ -1,6 +1,12 @@
+Card {
+    width: 360px;
+    box-shadow: none;
+    background: transparent;
+
+}
+
 .card {
     max-width: 360px;
-    width: 100%;
     box-shadow: none;
     background: transparent;
     margin-top: 48px;
@@ -27,6 +33,7 @@
             .title {
                 width: 346px;
                 font-size: 18px;
+                color: #000;
                 font-style: normal;
                 font-weight: 700;
                 line-height: 24px;
@@ -36,7 +43,7 @@
                 box-orient: vertical;
                 -webkit-box-orient: vertical;
                 -webkit-line-clamp: 2;
-                padding: 0 2rem;
+                padding: 0 1px;
                 padding-left: 1px;
                 padding-bottom: 5px;
 

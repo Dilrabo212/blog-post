@@ -4,6 +4,12 @@
 
 .userPostes {
     margin-bottom: 45px;
+    display: flex;
+}
+
+.historyWrp {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .wrp {

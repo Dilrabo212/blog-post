@@ -1,8 +1,8 @@
 import React from 'react'
 import sty from './style.module.scss'
 import dilorom from '../../image/dilorom.png'
-import PostCard from '../PostCard/PostCard'
-export default function Repost() {
+import PostCard from '../../components/PostCard/PostCard'
+export default function InfoUser() {
     return (
         <div className='container'>
             <div className={sty.InfoUser}>
