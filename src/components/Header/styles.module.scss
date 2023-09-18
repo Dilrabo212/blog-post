@@ -12,84 +12,94 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
 
-    .navStyle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
+.navStyle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
 
-        ul {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            list-style: none;
-            cursor: pointer;
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+    cursor: pointer;
+}
 
-            .cheked {
-                color: #000;
-                font-feature-settings: 'clig' off, 'liga' off;
-                font-family: Roboto;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 24px;
-            }
+.cheked {
+    color: #000;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
 
-            .chekedAktive {
-                display: inline-flex;
-                padding: 8px 12px;
-                align-items: flex-start;
-                gap: 10px;
-                border-radius: 8px;
-                background: #1B5BF7;
-                border: none;
-                color: #FFF;
-                font-family: Inter;
-                font-size: 18px;
-                font-weight: 500;
-                line-height: 16px;
-                cursor: pointer;
-                // display: flex;
-                // align-items: center;
-                // justify-content: center;
+.chekedAktive {
+    display: inline-flex;
+    padding: 8px 12px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 8px;
+    background: #1B5BF7;
+    border: none;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 16px;
+    cursor: pointer;
+    color: #FFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
 
+.kalakolchik {
+    position: relative;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
 
-                color: #FFF;
-                font-feature-settings: 'clig' off, 'liga' off;
-                font-family: Roboto;
-                font-size: 18px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 24px;
-            }
-        }
+.kalakolchikShotchik {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    display: flex;
+    width: 24px;
+    height: 24px;
+    padding: 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: var(--red-r-500, #F76659);
+    color: white;
+}
 
-    }
+.button {
+    cursor: pointer;
+    padding: 16px 16px;
+    background-color: #1B5BF7;
+    color: #FFF;
+    border: none;
+    border-radius: 8px;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
 
-    .kalakolchik {
-        position: relative;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-
-        .kalakolchikShotchik {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            display: flex;
-            width: 24px;
-            height: 24px;
-            padding: 8px;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            flex-shrink: 0;
-            border-radius: 20px;
-            background: var(--red-r-500, #F76659);
-            color: white;
-        }
-    }
 }

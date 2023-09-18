@@ -1,12 +1,34 @@
 // import { Link } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Kalakolchik, Logo } from '../../svg'
-import SmButton from '../Buttons/SmButton'
-import RegistrationModal from '../MUI/Modal/SignInModal/SigninModal'
+import RegistrationModal from '../MUI/Modal/RegistrationModal/RegistrationModal'
 import cls from './styles.module.scss'
 import EnterModal from '../MUI/Modal/EnterModal/EnterModal'
+// import { Button } from '@mui/material'
+import { useState } from 'react'
+import LoginModal from '../MUI/Modal/LoginModal/LoginModal'
 
 export const Header = () => {
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+
+  const [openRegister, setOpenRegister] = useState(false);
+  const handleOpenRegister = () => {
+    setOpenRegister(true);
+    handleClose();
+  }
+  const handleCloseRegister = () => setOpenRegister(false);
+
+
+  const [openLogin, setOpenLogin] = useState(false);
+  const handleOpenLog = () => {
+    setOpenLogin(true);
+    handleCloseRegister();
+  }
+  const handleCloseLog = () => setOpenLogin(false);
 
   const items = [
     { id: 1, link: '/home', name: 'Все потоки' },
@@ -16,7 +38,6 @@ export const Header = () => {
     { id: 5, link: '/menegment', name: 'Менеджмент' },
     { id: 6, link: '/nauchop', name: 'Научпоп' },
   ]
-
 
   return <div className={cls.wraphead}>
     <div className='container' >
@@ -31,22 +52,14 @@ export const Header = () => {
               </Link>
             )
           }
-          {/* <ul>
-            <li className={cls.chekedAktive}>Все потоки</li>
-            <li className={cls.cheked}>Разработка</li>
-            <li className={cls.cheked}>Администрирование</li>
-            <li className={cls.cheked}>Дизайн</li>
-            <li className={cls.cheked}>Менеджмент</li>
-            <li className={cls.cheked}>Маркетинг</li>
-            <li className={cls.cheked}>Научпоп</li>
-          </ul> */}
         </nav>
         <button className={cls.kalakolchik}>
           <Kalakolchik /><div className={cls.kalakolchikShotchik}>1</div>
         </button>
-        {/* <SmButton /> */}
-        <EnterModal />
-
+        <EnterModal onRegisterClick={handleOpenRegister} open={open} handleClose={handleClose} />
+        <RegistrationModal onLoginClik={handleOpenLog} open={openRegister} handleClose={handleCloseRegister} />
+        <LoginModal onLoginClik={handleOpenLog} open={openLogin} handleClose={handleCloseLog} />
+        <button className={cls.button} onClick={handleOpen}>Войти</button>
       </header>
     </div>
   </div>

@@ -1,7 +1,4 @@
 import cls from './style.module.scss'
-import user1 from '../../image/Ellipse 158.png'
-import user2 from '../../image/user2.png'
-import user3 from '../../image/user3.png'
 import { Link } from 'react-router-dom'
 export default function History({ data }) {
     console.log(data);
@@ -15,10 +12,10 @@ export default function History({ data }) {
                     data.map((el) => {
                         return (
                             <Link to={`${el.id}`}>
-                                <div className={cls.gredientLineWrp}>
+                                <div className={`${cls.gredientLineWrp} ${el.isViewed && cls.viewed}`}>
                                     <div className={cls.gredientLine}>
                                         {
-                                            <img src={el.image} alt="history" />
+                                            <img src={el.url} alt='history' />
                                         }
                                     </div>
                                 </div>

@@ -15,16 +15,27 @@
     border-radius: 50%;
 }
 
-.gredientLine {
+.gredientLineWrp.viewed {
+    background-color: grey;
+    background-image: none;
+}
 
+.gredientLine {
+    display: block;
     position: absolute;
-    top: 6px;
-    left: 6px;
+    top: 10px;
+    left: 10px;
     border-radius: 50%;
-    border: 7px solid white;
+
+
 
     & img {
+        width: 130px;
+        height: 130px;
+        object-fit: cover;
         display: block;
+        border-radius: 50%;
+        border: 7px solid white;
     }
 
 }

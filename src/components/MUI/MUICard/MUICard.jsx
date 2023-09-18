@@ -1,4 +1,4 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material'
+import { CardContent, CardMedia, Typography } from '@mui/material'
 import React from 'react'
 import styles from './style.module.scss'
 import LinesEllipsis from 'react-lines-ellipsis'
@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 export default function MuiCard({ data }) {
     console.log(data);
     return (
-        <>
+        <div className={styles.wrap}>
             {
                 data?.map((el) => {
                     return (
@@ -38,6 +38,6 @@ export default function MuiCard({ data }) {
                         </Link>
                     )
                 })
-            }</>
+            }</div>
     )
 }

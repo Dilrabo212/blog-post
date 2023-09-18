@@ -1,15 +1,12 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import styles from './style.module.scss';
-import { Avatar } from '@mui/material';
-import user1 from '../../../../image/Ellipse 158.png';
-import user2 from '../../../../image/user2.png';
-import user3 from '../../../../image/user3.png';
-import RegistrationModal from '../SignInModal/SigninModal';
-import { Link } from 'react-router-dom';
+import request from '../../../../services/httpRequest';
+
 const style = {
     position: 'absolute',
     top: '50%',
@@ -22,35 +19,168 @@ const style = {
     borderRadius: '8px',
 };
 
-export default function EnterModal() {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+export default function EnterModal({ open, handleClose, onRegisterClick }) {
+    const [data, setData] = useState({
+        username: "",
+        password: ""
+    });
+
+    // Load data from localStorage on component mount
+    React.useEffect(() => {
+        const savedData = JSON.parse(localStorage.getItem('userData'));
+        if (savedData) {
+            setData(savedData);
+        }
+    }, []);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setData({
+            ...data,
+            [name]: value
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const userData = {
+            username: data.username,
+            password: data.password
+        };
+
+        localStorage.setItem('userData', JSON.stringify(userData));
+
+        request.post('/login', userData)
+            .then((response) => {
+                console.log(response.status, response.data.token);
+            });
+    };
 
     return (
-        <div>
-            <Button className={styles.btn} onClick={handleOpen}>Войти</Button>
-            <Modal
-                className={styles.modal}
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
+        <Modal
+            className={styles.modal}
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+        >
+            <form onSubmit={handleSubmit}>
                 <Box sx={style}>
                     <Typography className={styles.title} id="modal-modal-title" variant="h4" component="h2">
                         Вход на udevs news
                     </Typography>
-                    <input className={styles.inp} type='text' placeholder='Email' />
-                    <input className={styles.inp} type='text' placeholder='Пароль' />
-                    <Link to={'/home'}><Button className={styles.login}>Войти</Button></Link>
+                    <input
+                        onChange={handleChange}
+                        className={styles.inp}
+                        type="email"
+                        name="email"
+                        value={data.username}
+                        placeholder='Email'
+                    />
+                    <input
+                        onChange={handleChange}
+                        className={styles.inp}
+                        type="password"
+                        name="password"
+                        value={data.password}
+                        placeholder='Пароль'
+                    />
+                    <Button className={styles.login} type="submit">Войти</Button>
                     <Typography className={styles.questionText} id="modal-modal-text" variant="p" component="p">
                         У вас ещё нет аккаунта?
-                        <Button className={styles.question}><RegistrationModal /></Button>
+                        <Button className={styles.question} onClick={onRegisterClick}> зарегистрироваться</Button>
                     </Typography>
                 </Box>
-            </Modal>
-        </div >
+            </form>
+        </Modal>
     );
 }
+
+
+
+
+// import * as React from 'react';
+// import Box from '@mui/material/Box';
+// import Button from '@mui/material/Button';
+// import Typography from '@mui/material/Typography';
+// import Modal from '@mui/material/Modal';
+// import styles from './style.module.scss';
+// import request from '../../../../services/httpRequest';
+// const style = {
+//     position: 'absolute',
+//     top: '50%',
+//     left: '50%',
+//     transform: 'translate(-50%, -50%)',
+//     width: '546px',
+//     bgcolor: 'background.paper',
+//     border: 'none',
+//     p: '60px',
+//     borderRadius: '8px',
+// };
+
+// export default function EnterModal({ open, handleClose, onRegisterClick, }) {
+
+//     const [data, setData] = React.useState({
+//         username: "",
+//         password: ""
+//     });
+
+//     const handleChange = (e) => {
+//         const value = e.target.value;
+//         setData({
+//             ...data,
+//             [e.target.name]: value
+//         });
+//     };
+
+//     const handleSubmit = (e) => {
+//         e.preventDefault();
+//         const userData = {
+//             email: data.email,
+//             password: data.password
+//         };
+//         request.post('/login', userData).then((response) => {
+//             console.log(response.status, response.data.token);
+//         });
+//     };
+
+
+//     return (
+//         <Modal
+//             className={styles.modal}
+//             open={open}
+//             onClose={handleClose}
+//             aria-labelledby="modal-modal-title"
+//             aria-describedby="modal-modal-description"
+//         >
+//             <form onSubmit={handleSubmit} >
+//                 <Box sx={style}>
+//                     <Typography className={styles.title} id="modal-modal-title" variant="h4" component="h2">
+//                         Вход на udevs news
+//                     </Typography>
+//                     <input onChange={handleChange}
+//                         // {...register('username', { required: true })}
+//                         className={styles.inp}
+//                         type="email"
+//                         name="email"
+//                         value={data.email}
+//                         placeholder='Email' />
+
+//                     <input onChange={handleChange}
+//                         // {...register('password', { required: true })}
+//                         className={styles.inp}
+//                         type="password"
+//                         name="password"
+//                         value={data.password}
+//                         placeholder='Пароль' />
+//                     <Button className={styles.login}>Войти</Button>
+//                     <Typography className={styles.questionText} id="modal-modal-text" variant="p" component="p">
+//                         У вас ещё нет аккаунта?
+//                         <Button className={styles.question} onClick={onRegisterClick}> зарегистрироваться</Button>
+//                     </Typography>
+//                 </Box>
+//             </form>
+//         </Modal>
+//     );
+// }
 

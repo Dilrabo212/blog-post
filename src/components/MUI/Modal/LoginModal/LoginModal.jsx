@@ -4,12 +4,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import styles from './style.module.scss';
-import { Avatar } from '@mui/material';
-import user1 from '../../../../image/Ellipse 158.png';
-import user2 from '../../../../image/user2.png';
-import user3 from '../../../../image/user3.png';
-import EnterModal from '../EnterModal/EnterModal';
-import { Home } from '../../../../modules/Home/Home';
+
 const style = {
     position: 'absolute',
     top: '50%',
@@ -22,14 +17,9 @@ const style = {
     borderRadius: '8px',
 };
 
-export default function LoginModal() {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-
+export default function LoginModal({ open, handleClose, }) {
     return (
         <div>
-            <Button className={styles.btn} onClick={handleOpen}>Войти</Button>
             <Modal
                 className={styles.modal}
                 open={open}
@@ -43,7 +33,7 @@ export default function LoginModal() {
                     </Typography>
                     <input className={styles.inp} type='text' placeholder='Придумайте пароль' />
                     <input className={styles.inp} type='text' placeholder='Подтвердите пароль' />
-                    <Button className={styles.login}>Войти</Button>
+                    <Button onClick={handleClose} className={styles.login} >Войти</Button>
                 </Box>
             </Modal>
         </div >

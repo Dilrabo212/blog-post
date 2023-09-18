@@ -1,8 +1,8 @@
-Card {
-    width: 360px;
-    box-shadow: none;
-    background: transparent;
-
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 5px;
 }
 
 .card {

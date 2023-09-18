@@ -8,7 +8,6 @@ import { Avatar } from '@mui/material';
 import user1 from '../../../../image/Ellipse 158.png';
 import user2 from '../../../../image/user2.png';
 import user3 from '../../../../image/user3.png';
-import LoginModal from '../LoginModal/LoginModal';
 const style = {
     position: 'absolute',
     top: '50%',
@@ -21,14 +20,9 @@ const style = {
     borderRadius: '8px',
 };
 
-export default function RegistrationModal() {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-
+export default function RegistrationModal({ open, handleClose, onLoginClik }) {
     return (
         <div>
-            <Button className={styles.question} onClick={handleOpen}> Зарегистрироваться</Button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -49,7 +43,7 @@ export default function RegistrationModal() {
                         <Avatar alt="Remy Sharp" src={user3} />
                         <Avatar alt="Remy Sharp" src="/images/user3.png" />
                     </Box>
-                    <Button className={styles.login}> <LoginModal link="/home" /></Button>
+                    <Button onClick={onLoginClik} className={styles.login}>Войти </Button>
 
                 </Box>
             </Modal>
