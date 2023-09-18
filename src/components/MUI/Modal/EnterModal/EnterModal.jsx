@@ -21,40 +21,9 @@ const style = {
 
 export default function EnterModal({ open, handleClose, onRegisterClick }) {
     const [data, setData] = useState({
-        username: "",
-        password: ""
-    });
-
-    // Load data from localStorage on component mount
-    React.useEffect(() => {
-        const savedData = JSON.parse(localStorage.getItem('userData'));
-        if (savedData) {
-            setData(savedData);
-        }
-    }, []);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setData({
-            ...data,
-            [name]: value
-        });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const userData = {
-            username: data.username,
-            password: data.password
-        };
-
-        localStorage.setItem('userData', JSON.stringify(userData));
-
-        request.post('/login', userData)
-            .then((response) => {
-                console.log(response.status, response.data.token);
-            });
-    };
+        username: '',
+        password: '',
+    })
 
     return (
         <Modal
