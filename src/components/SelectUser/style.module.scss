@@ -1,10 +1,11 @@
 .select {
     width: 56px;
     height: 56px;
-    background-image: url(../../image/Avatar.png);
+    // background-image: url(../../image/Avatar.png);
     border: none;
     outline: none;
     border-radius: 50%;
+    position: relative;
 }
 
 .option {

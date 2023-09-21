@@ -266,6 +266,14 @@
     {
       "username": "user123123",
       "password": "123"
+    },
+    {
+      "username": "",
+      "password": ""
+    },
+    {
+      "username": "didi",
+      "password": "1234"
     }
   ],
   "avatars": [

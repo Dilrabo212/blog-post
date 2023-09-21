@@ -23,19 +23,19 @@
 .gredientLine {
     display: block;
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 5px;
+    left: 5px;
     border-radius: 50%;
 
 
 
     & img {
-        width: 130px;
-        height: 130px;
+        width: 140px;
+        height: 140px;
         object-fit: cover;
         display: block;
         border-radius: 50%;
-        border: 7px solid white;
+        border: 5px solid white;
     }
 
 }

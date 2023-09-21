@@ -16,25 +16,25 @@ export const Footer = () => {
           <div className={cls.card}>
             <b>Ресурсы</b>
             <ul>
-              <Link to={"/"}><li>Статьи</li></Link>
-              <Link to={"/"}><li>Журналы</li></Link>
-              <Link to={"/"}> <li>Газеты</li></Link>
-              <Link to={"/"}><li>Диплом</li></Link>
+              <li><Link to={"/"}>Статьи </Link></li>
+              <li><Link to={"/"}>Журналы</Link></li>
+              <li><Link to={"/"}>Газеты </Link></li>
+              <li><Link to={"/"}>Диплом </Link></li>
             </ul>
           </div>
           <div className={cls.card}>
             <b>О нас</b>
             <ul>
-              <Link to={"/"}><li>Контакты</li></Link>
-              <Link to={"/"}><li>Помощь</li></Link>
-              <Link to={"/"}> <li>Заявки</li></Link>
-              <Link to={"/"}><li>Политика</li></Link>
+              <li><Link to={"/"}>Контакты </Link></li>
+              <li><Link to={"/"}>Помощь</Link></li>
+              <li><Link to={"/"}>Заявки </Link></li>
+              <li><Link to={"/"}>Политика </Link></li>
             </ul>
           </div>
           <div className={cls.card}>
             <b>Помощь</b>
             <ul>
-              <Link to={"/home"}><li>Часто задаваемые вопросы</li></Link>
+              <li> <Link to={"/home"}>Часто задаваемые вопросы</Link></li>
             </ul>
           </div>
         </div>

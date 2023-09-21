@@ -103,3 +103,27 @@ ul {
     line-height: 16px;
 
 }
+
+.userPhoto {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btnImage {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1B5BF7;
+    color: aliceblue;
+}
+
+.btnImageActive {
+    display: block;
+}

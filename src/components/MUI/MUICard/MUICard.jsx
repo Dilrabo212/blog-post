@@ -1,7 +1,6 @@
 import { CardContent, CardMedia, Typography } from '@mui/material'
 import React from 'react'
 import styles from './style.module.scss'
-import LinesEllipsis from 'react-lines-ellipsis'
 import { Link } from 'react-router-dom'
 export default function MuiCard({ data }) {
     console.log(data);
@@ -24,13 +23,7 @@ export default function MuiCard({ data }) {
                                             {el.created_at} {el.views}
                                         </Typography>
                                         <Typography className={styles.title}>
-                                            <LinesEllipsis
-                                                text={el.body}
-                                                maxLine='4'
-                                                ellipsis='...'
-                                                trimRight
-                                                basedOn='letters'
-                                            />
+                                            <div dangerouslySetInnerHTML={{ __html: el.body }} />
                                         </Typography>
                                     </CardContent>
                                 </div>

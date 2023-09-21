@@ -7,7 +7,7 @@ export default function Repost() {
     return (
         <div className='container'>
             <div className={sty.InfoUser}>
-
+                <SelectUser />
                 <div>
                     <img src={dilorom} alt="photo user" /></div>
                 <div className={sty.info}>
@@ -26,7 +26,6 @@ export default function Repost() {
                         <td>Черняховск, СССР (Россия)</td>
                     </tr>
                 </div>
-                <div> <SelectUser /></div>
             </div>
             <h2>ПУБЛИКАЦИИ</h2>
             <div className={sty.newpost}>

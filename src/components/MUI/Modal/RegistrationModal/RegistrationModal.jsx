@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import styles from './style.module.scss';
@@ -21,6 +20,7 @@ const style = {
 };
 
 export default function RegistrationModal({ open, handleClose, onLoginClik }) {
+
     return (
         <div>
             <Modal
@@ -30,11 +30,14 @@ export default function RegistrationModal({ open, handleClose, onLoginClik }) {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Typography className={styles.title} id="modal-modal-title" variant="h4" component="h2">
+                    <Typography className={styles.title} variant="h4" component="h2">
                         Как вас зовут?
                     </Typography>
-                    <input className={styles.inp} type='text' placeholder='Введите имя' />
-                    <Typography sx={{ mb: '16px' }} id="modal-modal-title" variant="h6" component="h2">
+                    <input
+                        className={styles.inp}
+                        type='text'
+                        placeholder='Введите имя' />
+                    <Typography sx={{ mb: '16px' }} className={styles.title} variant="h6" component="h2">
                         Выберите аватар
                     </Typography>
                     <Box sx={{ display: 'flex', gap: '8px', mb: '47px' }}>
@@ -43,8 +46,7 @@ export default function RegistrationModal({ open, handleClose, onLoginClik }) {
                         <Avatar alt="Remy Sharp" src={user3} />
                         <Avatar alt="Remy Sharp" src="/images/user3.png" />
                     </Box>
-                    <Button onClick={onLoginClik} className={styles.login}>Войти </Button>
-
+                    <button onClick={onLoginClik} className={styles.login}>Войти </button>
                 </Box>
             </Modal>
         </div >
