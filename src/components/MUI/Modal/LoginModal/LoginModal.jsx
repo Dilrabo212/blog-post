@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import styles from './style.module.scss';
 import request from '../../../../services/httpRequest';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const style = {
@@ -21,17 +20,19 @@ const style = {
 
 export default function LoginModal({ open, handleClose, }) {
 
-
-    const [userNameRegister, setUserNameRegister] = useState('');
-    const [passwordRegister, setPasswordRegister] = useState('');
+    const userData = JSON.parse(localStorage.getItem('userData'))
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         request.post('/register', {
-            username: userNameRegister,
-            password: passwordRegister
+            username: data.username,
+            password: data.password,
+            name: userData.name,
+            image: userData.avatar,
+            id: `${Date.now()}`
         }).then((res) => {
             console.log(res);
+            handleClose()
         })
     }
     return (
@@ -50,23 +51,17 @@ export default function LoginModal({ open, handleClose, }) {
                         </Typography>
                         <input
                             {...register('username', { required: true })}
-                            // onChange={(e) => {
-                            //     setUserNameRegister(e.target.value)
-                            // }}
                             className={styles.inp}
                             type='text'
                             placeholder='name '
                         />
                         <input
-                            {...register('username', { required: true })}
-                            // onChange={(e) => {
-                            //     setPasswordRegister(e.target.value)
-                            // }}
+                            {...register('password', { required: true })}
                             className={styles.inp}
                             type='password'
                             placeholder='password'
                         />
-                        <button onClick={handleSubmit(onSubmit)} type='submit' className={styles.login}>Войти</button>
+                        <button type='submit' className={styles.login}>Войти</button>
                     </Box>
                 </form>
             </Modal>

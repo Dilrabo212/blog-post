@@ -23,9 +23,7 @@ export default function EnterModal({ open, handleClose, onRegisterClick }) {
     const onSubmit = (data) => {
         request.post('/login', data)
             .then(data => {
-                localStorage.setItem(
-                    "userData", JSON.stringify(data.user)
-                )
+                localStorage.setItem("userData", JSON.stringify(data.user))
             })
     }
     return (
@@ -51,7 +49,6 @@ export default function EnterModal({ open, handleClose, onRegisterClick }) {
                         {...register('password', { required: true })}
                         className={styles.inp}
                         type="password"
-                        name="password"
                         placeholder='Пароль' />
                     <button type='submit' className={styles.login}>Войти</button>
                     <Typography className={styles.questionText} variant="p" component="p">
