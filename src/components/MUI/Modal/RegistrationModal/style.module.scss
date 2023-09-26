@@ -44,7 +44,14 @@
     padding: 10px !important;
     background: #1B5BF7 !important;
     color: #fff !important;
-
+    border: none;
+    border-radius: 8px;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: -0.096px;
 }
 
 .question {
@@ -64,5 +71,7 @@
 }
 
 .avatarInput:checked+.avatarWrapper {
-    border: red;
+    display: block;
+    border: 3px solid red;
+    border-radius: 50%;
 }

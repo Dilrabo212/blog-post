@@ -88,7 +88,7 @@ ul {
     color: white;
 }
 
-.button {
+.entButton {
     cursor: pointer;
     padding: 16px 16px;
     background-color: #1B5BF7;
@@ -109,6 +109,8 @@ ul {
     height: 56px;
     border-radius: 50%;
     cursor: pointer;
+    display: block;
+    position: relative;
 }
 
 .btnImage {
@@ -124,6 +126,35 @@ ul {
     color: aliceblue;
 }
 
-.btnImageActive {
+.btnImage.active {
     display: block;
+}
+
+//SELECT
+.selectBox {
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    display: none;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    width: 207px;
+    border-radius: 8px;
+    padding: 5px 10px;
+    box-shadow: 4px 4px 24px 1px rgba(34, 60, 80, 0.2);
+}
+
+.selectBox.open {
+    display: block;
+}
+
+.option {
+    color: #222;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    padding: 5px 10px;
+
 }

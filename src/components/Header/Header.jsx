@@ -5,8 +5,10 @@ import cls from './styles.module.scss'
 import EnterModal from '../MUI/Modal/EnterModal/EnterModal'
 import { useState } from 'react'
 import LoginModal from '../MUI/Modal/LoginModal/LoginModal'
+import { isValidJSON } from '../../utils/isValidJSON'
+import { clsx } from 'clsx'
 
-export const Header = () => {
+export const Header = ({ toggleSel }) => {
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -28,7 +30,15 @@ export const Header = () => {
   }
   const handleCloseLog = () => setOpenLogin(false);
 
-  const userData = JSON.parse(localStorage.getItem('userData'))
+  const userDataStr = localStorage.getItem('userData')
+
+  let userData = {}
+
+  if (isValidJSON(userDataStr)) {
+    userData = JSON.parse(userDataStr)
+  }
+
+
 
   const items = [
     { id: 1, link: '/home', name: 'Все потоки' },
@@ -62,15 +72,31 @@ export const Header = () => {
         {
           userData && userData.id
             ?
-            <button className={cls.btnImage}>
+            <button className={cls.btnImage} onClick={toggleSel}>
               <img className={cls.userPhoto}
-                src={userData?.image} alt='userData name' />
+                src={userData?.image} alt='userDataname' />
             </button>
             :
-            <button className={cls.btn} onClick={handleOpen}>Войти</button>
+            <button className={cls.entButton} onClick={handleOpen}>Войти</button>
         }
 
       </header>
     </div>
   </div>
 }
+export default function SelectUser({ }) {
+  const [openSel, setOpenSel] = useState(false);
+  const toggleSel = () => {
+    setOpenSel(!openSel);
+  }
+  return (
+    <div>
+      <div className={clsx(cls.selectBox, { [cls.open]: openSel })}>
+        <div className={cls.option}>Написать публикацию</div>
+        <div className={cls.option} >Избранные</div>
+        <div className={cls.option}>Выйти</div>
+      </div>
+    </div>
+  )
+}
+

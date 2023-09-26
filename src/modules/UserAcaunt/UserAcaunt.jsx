@@ -4,6 +4,7 @@ import { Link, useLocation, useParams } from 'react-router-dom'
 import FollowBtn from '../../components/Buttons/Follow/FollowBtn'
 import SaveBTN from '../../components/Buttons/SaveBTN/SaveBTN'
 import request from '../../services/httpRequest'
+
 export default function UserAcaunt({ }) {
     const { postId } = useParams()
 
@@ -29,12 +30,10 @@ export default function UserAcaunt({ }) {
     }, [post?.userId])
     console.log(post);
     return (
-
-
         <div className="container">
             <div className={cls.wrapper}>
                 <div className={cls.userInfo}>
-                    <Link to={'/'}> <img className={cls.userPhoto} src={post?.image} alt="acauntPhoto" /></Link>
+                    <Link to={`/users/${user?.id}`} > <img className={cls.userPhoto} src={post?.image} alt="acauntPhoto" /></Link>
                     <span className={cls.userName}>{user?.name}</span>
                     <div className={cls.buttonsWrap}>
                         <FollowBtn />
@@ -58,9 +57,7 @@ export default function UserAcaunt({ }) {
                     <div className={cls.infoSection}>
                         <h2 className={cls.postName}>{post?.title}
                         </h2>
-                        <p className={cls.postText}>
-                            {post?.body}
-                        </p>
+                        <p className={cls.postText} dangerouslySetInnerHTML={{ __html: post?.body }} />
                     </div>
                 </div>
             </div>

@@ -4,6 +4,7 @@ import MuiCard from '../../components/MUI/MUICard/MUICard'
 import PaginationRounded from '../../components/MUI/Pagination/Pagination'
 import request from '../../services/httpRequest'
 import { useEffect, useState } from 'react'
+import SelectUser from '../../components/SelectUser/SelectUser'
 
 
 
@@ -28,6 +29,7 @@ export const Home = () => {
       <div className='container'>
         <div className={cls.historyBoxs}>
           <History data={url} />
+          <SelectUser />
           <div className={cls.userPostes}>
             <MuiCard data={posts} />
           </div>

@@ -1,22 +1,27 @@
-.select {
-    width: 56px;
-    height: 56px;
-    // background-image: url(../../image/Avatar.png);
+.selectBox {
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    display: none;
     border: none;
     outline: none;
-    border-radius: 50%;
-    position: relative;
+    background-color: #fff;
+    width: 207px;
+    border-radius: 8px;
+    padding: 5px 10px;
+    box-shadow: 4px 4px 24px 1px rgba(34, 60, 80, 0.2);
+}
+
+.selectBox.open {
+    display: block;
 }
 
 .option {
-    width: 207px;
-    height: 127px;
     color: #222;
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 24px;
-    letter-spacing: -0.084px;
-    outline: none;
+    padding: 5px 10px;
+
 }

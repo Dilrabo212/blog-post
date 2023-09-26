@@ -5,6 +5,7 @@ import Modal from '@mui/material/Modal';
 import styles from './style.module.scss';
 import request from '../../../../services/httpRequest';
 import { useForm } from 'react-hook-form';
+import { isValidJSON } from '../../../../utils/isValidJSON';
 
 const style = {
     position: 'absolute',
@@ -18,9 +19,15 @@ const style = {
     borderRadius: '8px',
 };
 
-export default function LoginModal({ open, handleClose, }) {
+export default function LoginModal({ open, handleClose, handleOpen }) {
 
-    const userData = JSON.parse(localStorage.getItem('userData'))
+    const userDataStr = localStorage.getItem('userData')
+
+    let userData = {}
+
+    if (isValidJSON(userDataStr)) {
+        userData = JSON.parse(userDataStr)
+    }
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
@@ -30,9 +37,9 @@ export default function LoginModal({ open, handleClose, }) {
             name: userData.name,
             image: userData.avatar,
             id: `${Date.now()}`
-        }).then((res) => {
-            console.log(res);
+        }).then((data) => {
             handleClose()
+            localStorage.setItem("userData", JSON.stringify(data.user))
         })
     }
     return (

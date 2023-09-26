@@ -2,14 +2,14 @@
     padding: 60px !important;
 }
 
-// .btn {
-//     width: 100%;
-//     padding: 10px !important;
-//     background: #1B5BF7 !important;
-//     color: #fff !important;
-//     // margin-top: 47px !important;
+.btn {
+    width: 100%;
+    padding: 10px !important;
+    background: #1B5BF7 !important;
+    color: #fff !important;
+    // margin-top: 47px !important;
 
-// }
+}
 
 .title {
     padding: 0 !important;
@@ -37,5 +37,32 @@
     padding: 10px !important;
     background: #1B5BF7 !important;
     color: #fff !important;
+    border: none;
+    border-radius: 8px;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: -0.096px;
+}
 
+.btnImage {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1B5BF7;
+    color: aliceblue;
+}
+
+.userPhoto {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    cursor: pointer;
 }

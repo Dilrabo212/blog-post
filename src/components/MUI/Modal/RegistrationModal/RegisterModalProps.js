@@ -6,7 +6,7 @@ export const RegisterModalProps = ({ onLoginClik }) => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
-        localStorage.setItem("userData", JSON.stringify(data.user))
+        localStorage.setItem("userData", JSON.stringify(data))
         onLoginClik()
     }
     const getAvatars = useGetAvatars()
