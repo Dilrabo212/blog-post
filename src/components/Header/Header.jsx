@@ -84,19 +84,5 @@ export const Header = ({ toggleSel }) => {
     </div>
   </div>
 }
-export default function SelectUser({ }) {
-  const [openSel, setOpenSel] = useState(false);
-  const toggleSel = () => {
-    setOpenSel(!openSel);
-  }
-  return (
-    <div>
-      <div className={clsx(cls.selectBox, { [cls.open]: openSel })}>
-        <div className={cls.option}>Написать публикацию</div>
-        <div className={cls.option} >Избранные</div>
-        <div className={cls.option}>Выйти</div>
-      </div>
-    </div>
-  )
-}
+
 

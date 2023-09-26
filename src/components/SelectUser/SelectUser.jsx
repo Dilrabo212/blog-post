@@ -4,7 +4,11 @@ import sty from './style.module.scss'
 import { clsx } from 'clsx';
 
 
-export default function SelectUser({ openSel }) {
+export default function SelectUser({ }) {
+    const [openSel, setOpenSel] = useState(false);
+    const toggleSel = () => {
+        setOpenSel(!openSel);
+    }
 
     return (
         <div>
