@@ -5,19 +5,16 @@ import { clsx } from 'clsx';
 
 
 export default function SelectUser({ }) {
-    const [openSel, setOpenSel] = useState(false);
-    const toggleSel = () => {
-        setOpenSel(!openSel);
-    }
-
     return (
-        <div>
-            <div className={clsx(sty.selectBox, { [sty.open]: openSel })}>
+        <>
+            <div className={clsx(sty.selectBox, { [sty.open]: false })}
+                openSelect={false}
+            >
                 <div className={sty.option}>Написать публикацию</div>
                 <div className={sty.option} >Избранные</div>
                 <div className={sty.option}>Выйти</div>
             </div>
-        </div>
+        </>
     )
 }
 

@@ -1,9 +1,9 @@
 .historyWrp {
     display: flex;
-    // width: 1251px;
     align-items: flex-start;
     gap: 24px;
     margin-top: 32px;
+    overflow: hidden;
 
 }
 
@@ -53,4 +53,11 @@
 
 .historyBoxs {
     margin-top: 51px;
+}
+
+@media screen and (max-width:1055px) {
+    .historyWrp {
+        overflow: hidden;
+        gap: 14px;
+    }
 }

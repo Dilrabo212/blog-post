@@ -6,9 +6,9 @@ import EnterModal from '../MUI/Modal/EnterModal/EnterModal'
 import { useState } from 'react'
 import LoginModal from '../MUI/Modal/LoginModal/LoginModal'
 import { isValidJSON } from '../../utils/isValidJSON'
-import { clsx } from 'clsx'
+import { useRef } from 'react'
 
-export const Header = ({ toggleSel }) => {
+export const Header = ({ }) => {
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -38,6 +38,7 @@ export const Header = ({ toggleSel }) => {
     userData = JSON.parse(userDataStr)
   }
 
+  const [openSel, setOpenSel] = useState(false)
 
 
   const items = [
@@ -48,6 +49,27 @@ export const Header = ({ toggleSel }) => {
     { id: 5, link: '/menegment', name: 'Менеджмент' },
     { id: 6, link: '/nauchop', name: 'Научпоп' },
   ]
+
+  const Menus = [
+    { id: 1, link: '/createpost', name: 'Написать публикацию' },
+    { id: 2, link: '/repost', name: 'Избранные' },
+    { id: 3, link: '/logout', name: 'Выйти' },
+
+
+  ]
+
+  // solution
+  const menuRef = useRef()
+  const imgRef = useRef()
+
+
+  // window.addEventListener('click', (e) => {
+
+  //   if (e.target !== menuRef.current && e.target !== imgRef.current) {
+  //     setOpenSel(false);
+  //   };
+
+  // });
 
   return <div className={cls.wraphead}>
     <div className='container' >
@@ -69,17 +91,51 @@ export const Header = ({ toggleSel }) => {
         <EnterModal onRegisterClick={handleOpenRegister} open={open} handleClose={handleClose} />
         <RegistrationModal onLoginClik={handleOpenLog} open={openRegister} handleClose={handleCloseRegister} />
         <LoginModal onLoginClik={handleOpenLog} open={openLogin} handleClose={handleCloseLog} />
-        {
-          userData && userData.id
-            ?
-            <button className={cls.btnImage} onClick={toggleSel}>
-              <img className={cls.userPhoto}
-                src={userData?.image} alt='userDataname' />
-            </button>
-            :
-            <button className={cls.entButton} onClick={handleOpen}>Войти</button>
-        }
 
+        <div className={cls.relative}>
+          {
+            userData && userData.id
+              ?
+              <button
+                ref={imgRef}
+                className={cls.btnImage}
+                onClick={() => setOpenSel(!openSel)}
+              >
+                <img className={cls.userPhoto}
+                  src={userData?.image}
+                  alt='userDataname'
+
+                />
+              </button>
+              :
+              <button className={cls.entButton} onClick={handleOpen}>Войти</button>
+          }
+        </div>
+        {
+          openSel &&
+          <div
+            ref={menuRef}
+            className={cls.selectBox}>
+            <ul className={cls.selectList}>
+              {
+                Menus.map((el) => (
+                  <Link to={el.link} key={el.id}>
+                    <li
+                      onClick={() => setOpenSel(false)}
+                      className={cls.option} key={el.id}>
+                      {el.name}
+                    </li>
+                  </Link>
+                ))
+              }
+              {/* {
+                <Link className={cls.cheked} to={el.link} key={el.id}>
+                  {el.name}
+                </Link>
+              } */}
+            </ul>
+          </div>
+        }
       </header>
     </div>
   </div>
