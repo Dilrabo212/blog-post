@@ -70,7 +70,6 @@
     width: 680px;
     outline: none;
     padding: 8px 16px;
-    margin-bottom: 1000px;
     color: var(--dark-gray-dark-gray-3, #303940);
     font-family: Inter;
     font-size: 14px;
@@ -88,4 +87,18 @@
     border-radius: 6px;
     border: 1px solid var(--Border-color, #E5E9EB);
     background-color: #FFF;
+}
+
+.btn {
+    max-width: 716px;
+    margin-top: 24px;
+    margin-bottom: 50px;
+    border: none;
+    background: #1B5BF7;
+    padding: 10px 20px;
+    color: #FFF;
+    border-radius: 10px;
+    font-family: Inter;
+    font-size: 16px;
+    margin-left: 40px;
 }

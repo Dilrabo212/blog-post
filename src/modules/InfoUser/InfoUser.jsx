@@ -10,57 +10,65 @@ export default function InfoUser() {
     let { pathname } = useLocation()
     pathname = pathname.substring(1)
 
-    const [post, setPost] = useState({})
+    const [post, setPost] = useState([])
     useEffect(() => {
-        request.get(`/posts/${userId}`)
+        request.get(`/posts?userId=${userId}`)
             .then(res => {
                 setPost(res)
             })
     }, [])
 
-
+    console.log(post);
     const [user, setUser] = useState({})
     useEffect(() => {
-        if (post?.userId) {
-            request.get(`/users/${post?.userId}`)
-                .then(res => {
-                    setUser(res)
-                })
-        }
-    }, [post?.userId])
-    console.log(post);
 
+        request.get(`/users/${userId}`)
+            .then(res => {
+                setUser(res)
+            })
+
+    }, [post?.userId])
 
 
     return (
         <div className='container'>
             <div className={sty.InfoUser}>
+                <Link to={`/userInfo/${user?.id}`} > <img className={sty.userPhoto} src={user?.image} alt="acauntPhoto" /></Link>
+
                 <div>
-                    <Link to='/(${isValidJSON(user?.image) ? user?.image : dilorom}' onClick={() => window.open('/(${isValidJSON(user?.image) ? user?.image : dilorom}', '_blank')}> <img src={post?.image} alt="photo user" /></Link>
                 </div>
                 <div className={sty.info}>
-                    <h2 className={sty.name}>{post?.name}</h2>
 
+                    <h2 className={sty.name}>{user?.name}</h2>
                     <tr>
                         <td>Карьера</td>
-                        <td>{post?.career}</td>
+                        <td>{user?.career}</td>
                     </tr>
                     <tr>
                         <td>Дата рождения</td>
-                        <td>{post?.date}</td>
+                        <td>{user?.date}</td>
                     </tr>
                     <tr>
                         <td>Место рождения</td>
-                        <td>{post?.place}</td>
+                        <td>{user?.place}</td>
                     </tr>
+
                 </div>
             </div>
             <h2>ПУБЛИКАЦИИ</h2>
             <div className={sty.newpost}>
+                {
+                    post.map((post) => {
+                        return <PostCard
+                            image={post.image}
+                            title={post.title}
+                            date={post.created_at}
+                            body={post.body}
+                            views={post.views}
+                        />
+                    })
+                }
 
-                <PostCard />
-                <PostCard />
-                <PostCard />
             </div>
         </div>
     )

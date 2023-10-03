@@ -33,7 +33,7 @@ export default function UserAcaunt({ }) {
         <div className="container">
             <div className={cls.wrapper}>
                 <div className={cls.userInfo}>
-                    <Link to={`/users/${user?.id}`} > <img className={cls.userPhoto} src={post?.image} alt="acauntPhoto" /></Link>
+                    <Link to={`/userInfo/${user?.id}`} > <img className={cls.userPhoto} src={post?.image} alt="acauntPhoto" /></Link>
                     <span className={cls.userName}>{user?.name}</span>
                     <div className={cls.buttonsWrap}>
                         <FollowBtn />

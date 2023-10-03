@@ -125,6 +125,60 @@
       "created_at": "2023-09-11T08:44:23.575Z",
       "views": 354,
       "id": 14
+    },
+    {
+      "userId": "1695493625208",
+      "id": 1696339443884,
+      "title": "New Repost",
+      "body": "<p>My First post</p>",
+      "created_at": "2023-10-03T13:24:03.884Z",
+      "views": 326,
+      "image": "https://picsum.photos/360/300/?random=1"
+    },
+    {
+      "userId": 1,
+      "id": 1696342132920,
+      "title": "MY POST1",
+      "body": "<p>POST1 BODY</p>",
+      "created_at": "2023-10-03T14:08:52.921Z",
+      "views": 326,
+      "image": "https://picsum.photos/360/300/?random=1"
+    },
+    {
+      "userId": 1,
+      "id": 1696342150551,
+      "title": "MY POST2",
+      "body": "<p>POST2 BODY</p>",
+      "created_at": "2023-10-03T14:09:10.551Z",
+      "views": 326,
+      "image": "https://picsum.photos/360/300/?random=1"
+    },
+    {
+      "userId": 1,
+      "id": 1696342160667,
+      "title": "MY POST3",
+      "body": "<p>POST3 BODY</p>",
+      "created_at": "2023-10-03T14:09:20.667Z",
+      "views": 326,
+      "image": "https://picsum.photos/360/300/?random=1"
+    },
+    {
+      "userId": 1,
+      "id": 1696342245580,
+      "title": "a'skld;fj",
+      "body": "<p>asfkasdfn</p>",
+      "created_at": "2023-10-03T14:10:45.580Z",
+      "views": 326,
+      "image": "https://picsum.photos/360/300/?random=1"
+    },
+    {
+      "userId": 1,
+      "id": 1696342295919,
+      "title": "egfyaef",
+      "body": "<p>euwgwuibfd</p>",
+      "created_at": "2023-10-03T14:11:35.919Z",
+      "views": 326,
+      "image": "https://picsum.photos/360/300/?random=1"
     }
   ],
   "users": [
