@@ -17,6 +17,8 @@ export default function InfoUser() {
                 setPost(res)
             })
     }, [])
+
+
     const [user, setUser] = useState({})
     useEffect(() => {
         if (post?.userId) {
@@ -28,31 +30,34 @@ export default function InfoUser() {
     }, [post?.userId])
     console.log(post);
 
+
+
     return (
         <div className='container'>
             <div className={sty.InfoUser}>
                 <div>
-                    <Link to='/'> <img src={post?.image} alt="photo user" /></Link>
+                    <Link to='/(${isValidJSON(user?.image) ? user?.image : dilorom}' onClick={() => window.open('/(${isValidJSON(user?.image) ? user?.image : dilorom}', '_blank')}> <img src={post?.image} alt="photo user" /></Link>
                 </div>
                 <div className={sty.info}>
                     <h2 className={sty.name}>{post?.name}</h2>
 
                     <tr>
                         <td>Карьера</td>
-                        <td>Писатель</td>
+                        <td>{post?.career}</td>
                     </tr>
                     <tr>
                         <td>Дата рождения</td>
-                        <td>2 ноября, 1974  ( 46 лет)</td>
+                        <td>{post?.date}</td>
                     </tr>
                     <tr>
                         <td>Место рождения</td>
-                        <td>Черняховск, СССР (Россия)</td>
+                        <td>{post?.place}</td>
                     </tr>
                 </div>
             </div>
             <h2>ПУБЛИКАЦИИ</h2>
             <div className={sty.newpost}>
+
                 <PostCard />
                 <PostCard />
                 <PostCard />

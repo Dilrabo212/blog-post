@@ -3,7 +3,7 @@ import { Kalakolchik, Logo } from '../../svg'
 import RegistrationModal from '../MUI/Modal/RegistrationModal/RegistrationModal'
 import cls from './styles.module.scss'
 import EnterModal from '../MUI/Modal/EnterModal/EnterModal'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import LoginModal from '../MUI/Modal/LoginModal/LoginModal'
 import { isValidJSON } from '../../utils/isValidJSON'
 import { useRef } from 'react'
@@ -40,7 +40,6 @@ export const Header = ({ }) => {
 
   const [openSel, setOpenSel] = useState(false)
 
-
   const items = [
     { id: 1, link: '/home', name: 'Все потоки' },
     { id: 2, link: '/razrabotka', name: 'Разработка' },
@@ -50,9 +49,9 @@ export const Header = ({ }) => {
     { id: 6, link: '/nauchop', name: 'Научпоп' },
   ]
 
-  const Menus = [
+  const menus = [
     { id: 1, link: '/createpost', name: 'Написать публикацию' },
-    { id: 2, link: '/repost', name: 'Избранные' },
+    { id: 2, link: '/repost:`${userData?.id}`', name: 'Избранные' },
     { id: 3, link: '/logout', name: 'Выйти' },
 
 
@@ -62,14 +61,19 @@ export const Header = ({ }) => {
   const menuRef = useRef()
   const imgRef = useRef()
 
+  const onWindowClick = (e) => {
+    const isClosest = e.target.closest(`.${imgRef.current.className}`)
+    if (!isClosest) {
+      setOpenSel(false)
+    }
+  }
+  useEffect(() => {
+    window.addEventListener('click', onWindowClick)
+    return () => {
+      window.removeEventListener('click', onWindowClick)
+    }
 
-  // window.addEventListener('click', (e) => {
-
-  //   if (e.target !== menuRef.current && e.target !== imgRef.current) {
-  //     setOpenSel(false);
-  //   };
-
-  // });
+  }, [])
 
   return <div className={cls.wraphead}>
     <div className='container' >
@@ -118,21 +122,17 @@ export const Header = ({ }) => {
             className={cls.selectBox}>
             <ul className={cls.selectList}>
               {
-                Menus.map((el) => (
-                  <Link to={el.link} key={el.id}>
-                    <li
-                      onClick={() => setOpenSel(false)}
-                      className={cls.option} key={el.id}>
+                menus.map((el) => (
+                  <li
+                    onClick={() => setOpenSel(false)}
+                    className={cls.option} key={el.id}>
+                    <Link to={el.link}>
                       {el.name}
-                    </li>
-                  </Link>
+                    </Link>
+                  </li>
                 ))
               }
-              {/* {
-                <Link className={cls.cheked} to={el.link} key={el.id}>
-                  {el.name}
-                </Link>
-              } */}
+
             </ul>
           </div>
         }

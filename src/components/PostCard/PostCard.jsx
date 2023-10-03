@@ -2,6 +2,9 @@ import React from 'react'
 import sty from './style.module.scss'
 import meeting from '../../image/meeting.png'
 export default function PostCard() {
+
+
+
     return (
         <div className={sty.postCard}>
             <div className={sty.img}>

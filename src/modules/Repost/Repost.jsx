@@ -2,12 +2,15 @@ import React from 'react'
 import sty from './style.module.scss'
 import dilorom from '../../image/dilorom.png'
 import PostCard from '../../components/PostCard/PostCard'
-import SelectUser from '../../components/SelectUser/SelectUser'
 export default function Repost() {
+
+
+
+
+
     return (
         <div className='container'>
             <div className={sty.InfoUser}>
-                <SelectUser />
                 <div>
                     <img src={dilorom} alt="photo user" /></div>
                 <div className={sty.info}>
