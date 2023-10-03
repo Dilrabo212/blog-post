@@ -51,7 +51,7 @@ export const Header = ({ }) => {
 
   const menus = [
     { id: 1, link: '/createpost', name: 'Написать публикацию' },
-    { id: 2, link: '/repost:`${userData?.id}`', name: 'Избранные' },
+    { id: 2, link: `userInfo/:userId`, name: 'Избранные' },
     { id: 3, link: '/logout', name: 'Выйти' },
 
 
